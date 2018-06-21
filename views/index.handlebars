@@ -1,0 +1,60 @@
+<h1>Cats!</h1>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Burger</h1>
+    <p class="lead"></p>
+    <div class="card w-50">
+      <div class="card-body">
+        <h5 class="card-title">Order a Burger</h5>
+        <form class="create-form">
+          <h2>Add a Burger</h2>
+          <div class="form-group">
+            <label for="ca">Burger Name:</label>
+            <input type="text" id="ca" name="name">
+          </div>
+          <button type="submit">Add Burger</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Eat some burgers!</h2>
+
+<ul>
+  {{#each cats}} 
+    {{#unless sleepy}} 
+      {{> cats/cat-block sleep=true}} 
+    {{/unless}} 
+  {{/each}}
+</ul>
+
+<h2>Devoured Burgers!</h2>
+
+<ul>
+  {{#each cats}} 
+    {{#if sleepy}} 
+      {{> cats/cat-block sleep=false}} 
+    {{/if}} 
+  {{/each}}
+</ul>
+
+{{!-- 
+<form class="create-form">
+  <h2>Add a Burger</h2>
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+  <button type="submit">Add Cat</button>
+</form>
+<div class="form-group">
+  <label for="slee">Sleepy?</label>
+  <br>
+  <input type="radio" name="sleepy" value="1" checked> Devoured!
+  <br>
+  <input type="radio" name="sleepy" value="0">
+</div>
+
+<button type="submit">Add Cat</button> --}}
